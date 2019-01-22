@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"> 
+  <style>
+  body{
+    font-family:Times New Roman;
+    font-size:25px;
+    background-size: cover;
+    text-align: center;   
+  }
+  .container{
+    background-color: #FAAC58;
+  }
+  #p{
+    padding-top: 2%;
+    width:100%;
+    height:auto;
+  }
+  img{  
+    width: auto;  
+    height: auto;  
+    max-width: 100%;  
+    max-height: 100%;     
+  } 
+  .p1{
+    padding-top: 2px;
+  }
+  .x{
+    padding-top :2%;
+    padding-bottom: 2%;
+  }
+  .footer {
+    background-color: #9933cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+  }
+</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Homepage</title>
+ </head>
+
+<body>
+
+<div class = "container" >
+  <div class="row">
+     <div class = "col-sm-6" align="left">
+    <p><font size="10" color="purple" >Guojing Zhang</font></p>
+    </div>
+
+    <div class = "col-sm-6" align = "right">
+      <svg height="40" width="200">
+        <text x="0" y="20" fill="red" transform="rotate(10 10,10)">Welcome my page</text>
+      </svg>
+    </div>
+  </div>
+
+ <div class="row" align="center" padding-top = "5px">
+   <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home Page</li>
+      <li class="breadcrumb-item"><a href="./uni1.html">Undergraduate life</a></li>
+      <li class="breadcrumb-item"><a href="./pitt1.html">At Pitt</a></li>
+      <li class="breadcrumb-item"><a href="./hobby1.html">My hobby</a></li>
+      <li class="breadcrumb-item"><a href="./travel1.html">Visited Places</a></li>
+    </ol>
+  </nav>
+</div>
+
+  <div class = "row" id = 'p'>
+    <div class = "col-sm-6"><img alt = "Selfie" src="pic/selfie.jpg" /></div>
+    <div class = "col-sm-6">
+      <p class = 'p1'><font size="4" color="purple" >About me:</font></p>
+      <br>
+      <p class = 'p1'><font size="4" color="black" >School: University of Pittsburgh</font></p>
+      <br>
+      <p class = 'p1'><font size="4" color="black" >Major:Information Science</font></p>
+      <br>
+      <p class = 'p1'><font size="4" color="black" >Hometown: Xi'an, China</font></p>
+    </div>
+  </div>
+
+  <div id = "row" >
+    <div class = 'x'><font size="4" color="black">
+      <b>Messege Board: </b>
+      <br>
+    </div>
+    <div><textarea class="input" id="txt" style="width:100%; height:80px"></textarea> </div>
+    <button type="button" onclick="alert('Successfully Submit!')">submit</button>
+  </div>
+
+  <div id = "row" align="left" padding-top= "2px">
+    <p style="color:white;font-size:15px;">
+      The current time is:
+    <script type="text/javascript">
+       print_todays_date();
+       function print_todays_date(){
+        var d = new Date();
+        document.write(d.toLocaleString());
+        }
+    </script></p>
+  </div>
+
+<div id="row" class="footer">
+  <p>Copyright by Guojing Zhang</p>
+</div>
+
+</div>
+</body>
+</html>
