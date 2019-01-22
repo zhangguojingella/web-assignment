@@ -1,0 +1,191 @@
+<html>
+  <head>
+    <title>
+      Shopping:
+    </title>
+  </head>
+
+  <style>
+  body{
+    font-family: arial;
+    font-size:10spx;
+    background-size: cover;
+    text-align: center;   
+  }
+  h1 {
+        text-align:center;
+      }
+    table {
+        margin:0 auto;
+        width:98%;
+        border:2px solid #aaa;
+        border-collapse:collapse;
+      }
+    table th, table td {
+        border:2px solid #aaa;
+        padding:5px;
+        text-align: center;   
+      }
+    th {
+        background-color:#eee;
+      }
+  div{
+    width:auto;
+    height: auto;
+  }
+  #pic{
+    width: 100%;
+    height: 100%;
+  }
+  #p{
+    width:25%;
+    height:150px;
+  }
+  #total{
+    font-size:30px;
+    text-align:right;
+  }
+  </style>
+
+  <script type="text/javascript">
+    var tbody;
+        function addCart(b){
+        var tr = b.parentNode.parentNode;//返回当前行
+        var tds = tr.getElementsByTagName("td");//返回td那行所有内容
+        var name = tds[1].innerText;//第二个是名字
+        var price = tds[2].innerText;//第五个是价格
+        
+        tbody = document.getElementById("cart");//empty at the beginning
+        var amount = 1;
+        if(!hasMeal(name)){ //不为空     
+          var newtr = document.createElement("tr");  //新的一行      
+          newtr.innerHTML = 
+          '<td>'+name+'</td>'+
+          '<td>'+price+'</td>'+
+          '<td align="center">'+
+            '<input type="button" value="-" onclick="reduce(this);"> '+
+            '<input type="text" size="5" readonly value='+amount+'> '+
+            '<input type="button" value="+" onclick="add(this);"/>'+
+          '</td>'+
+          '<td>'+price+'</td>'+
+          '<td align="center"><input type="button" value="delete" onclick="del(this);" style="zoom:180%;"/></td>';
+          //在tbody下插入一行
+          tbody.appendChild(newtr);
+        } else {
+        var trs = tbody.getElementsByTagName("tr");
+          for(var i=0;i<trs.length;i++){
+            if(trs[i].getElementsByTagName("td")[0].innerText==name){
+              amount = trs[i].getElementsByTagName("td")[2].getElementsByTagName("input")[1].value++;              
+              trs[i].getElementsByTagName("td")[3].innerText = (++amount)*price;
+            }
+          }
+        }
+      }
+      
+      function hasMeal(name){
+        tbody = document.getElementById("cart");
+        var trs = tbody.getElementsByTagName("tr");
+        for(var i=0;i<trs.length;i++){
+          if(trs[i].getElementsByTagName("td")[0].innerText == name){
+            return true;            
+          }
+        }
+        return false;
+      }//empty or not
+      
+      function add(b){
+          var input = b.parentNode.getElementsByTagName("input")[1];
+          var amount = ++input.value;
+          var price = b.parentNode.parentNode.getElementsByTagName("td")[1].innerText
+          b.parentNode.parentNode.getElementsByTagName("td")[3].innerText = amount*price;
+      }
+      
+      function reduce(b){
+          var input = b.parentNode.getElementsByTagName("input")[1];        
+          var amount = --input.value;
+          if(amount<1){
+              amount = ++input.value;
+          }
+          var price = b.parentNode.parentNode.getElementsByTagName("td")[1].innerText
+          b.parentNode.parentNode.getElementsByTagName("td")[3].innerText = amount*price;
+      }
+      
+      function del(b){
+          var tr = b.parentNode.parentNode;
+          b.parentNode.parentNode.parentNode.removeChild(tr);
+      }
+
+    </script>
+
+  <body>
+    <table border=1px>
+        <table>
+          <tr>
+          <th>picture</th>
+          <th>name</th>
+          <th>price</th>
+          <th>order</th>
+          </tr>
+
+          <tr>
+          <td id = 'p'>
+          <img id ='pic' src = 'https://www.highmowingseeds.com/pub/media/catalog/product/cache/image/675x675/e9c3970ab036de70892d86c6d221abfe/2/3/2334.jpg' ></td>
+          <td>carrots</td>
+          <td><div id = 'price'>3</div></td>
+          <td align='center'>
+              <input type='button' value='order' onclick='addCart(this);' style='zoom:180%;'/>
+          </td> 
+          </tr>
+
+          <tr>
+          <td id = 'p'>
+          <img id ='pic' src = 'https://www.saveur.com/sites/saveur.com/files/styles/1000_1x_/public/milk-bread-14_2000x1500.jpg?itok=DalU9hCJ&fc=50,50' ></td>
+          <td>bread</td>
+          <td><div id = 'price'>5</div></td>
+          <td align='center'>
+              <input type='button' value='order' onclick='addCart(this);' style='zoom:180%;'/>
+          </td> 
+          </tr>
+
+          <tr>
+          <td id = 'p'>
+          <img id ='pic' src = 'https://assets3.thrillist.com/v1/image/1694700/size/tmg-article_default_mobile.jpg' ></td>
+          <td>milk</td>
+          <td><div id = 'price'>4</div></td>
+          <td align='center'>
+              <input type='button' value='order' onclick='addCart(this);' style='zoom:180%;'/>
+          </td> 
+          </tr>
+
+        </table>
+
+    <h1>Shopping Cart: </h1>
+    <table>
+
+    <thead>
+      <tr>
+      <th>name</th>
+      <th>Unit Price</th>
+      <th>Amount</th>
+      <th>Total Price</th>
+      <th>Delete</th>
+      </tr>
+      </thead>
+
+      <tbody id="cart">
+      </tbody>
+
+      <tfoot>
+      <tr>
+      
+      <input type = 'hidden' id = 'xixi' name = 'detail'>
+      <input type = 'hidden' id = 'didi' name = 'price'>
+      <input type = 'hidden' name = 'uid'>
+      <input type = 'hidden' name = 'rid'>
+      </tr>
+      </form>
+      </tfoot>
+
+    </table>
+  </body>
+</html>
