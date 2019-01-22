@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>HW 2</title>
+
+<script type="text/javascript">
+ function print_todays_date()
+ {
+	   var d = new Date();
+	   document.write(d.toLocaleString());
+	 }
+
+correct=0;
+function select(obj){
+	id = obj.getAttribute("class");
+	if (id == "r"){
+        alert("Cong! Right choice!");
+		obj.parentNode.parentNode.setAttribute("class", "d");	
+		scoreElem=document.getElementById("score");
+		correct++;
+		ctnode=document.createTextNode(correct);
+		scoreElem.removeChild(scoreElem.childNodes[0]);
+		scoreElem.appendChild(ctnode);
+	   }
+	else{
+        alert("Sad! Wrong choice!");
+	    obj.parentNode.parentNode.setAttribute("class", "d");
+	}
+}
+
+  function result(){
+	window.alert("Your quiz score is "+correct+"/10")
+}
+
+function print_name(){
+    var name = ["ella","peter"];
+    document.getElementById("d").innerHTML = name[0];
+}
+</script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "css/s1.css" />
+</head>
+<body>
+
+<div class = "container">
+<div id="div1" class="header">
+  <h1><span>Word Quiz</span></h1>
+</div>
+
+<div class="row">
+
+<div id="div2" class="col-3 col-s-3 menu">
+  <font size="6" color="purple"><p>How Strong is your vocabulary?</p>
+  <p id = "d"></p>
+        <script type="text/javascript">
+         print_name();
+        </script>
+    </font>
+</div>
+
+<div id="div3" class="col-6 col-s-9 extra" class="extra" style="color:black">
+  <center></center>
+    <ol>                
+    <li class = "o">Which is a synonym of impervious?<ul>
+    <li class = "n" onclick=select(this)>A. dramatic</li>
+    <li class = "n" onclick=select(this)>B. cooperative</li>
+    <li class = "r" onclick=select(this)>C. impenentrable</li>
+    <li class = "n" onclick=select(this)>D. dreary</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of staid?<ul>
+    <li class = "n" onclick=select(this)>A. unrealiable</li>
+    <li class = "n" onclick=select(this)>B. uninformed</li>
+    <li class = "n" onclick=select(this)>C. spicy</li>
+    <li class = "r" onclick=select(this)>D. serious</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of advocate?<ul>
+    <li class = "r" onclick=select(this)>A. supporter</li>
+    <li class = "n" onclick=select(this)>B. buyer</li>
+    <li class = "n" onclick=select(this)>C. example</li>
+    <li class = "n" onclick=select(this)>D. outcome</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of adept?<ul>
+    <li class = "n" onclick=select(this)>A. seemly</li>
+    <li class = "r" onclick=select(this)>B. expert</li>
+    <li class = "n" onclick=select(this)>C. useful</li>
+    <li class = "n" onclick=select(this)>D. small</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of ablutions?<ul>
+    <li class = "n" onclick=select(this)>A. emptying </li>
+    <li class = "n" onclick=select(this)>B. training</li>
+    <li class = "r" onclick=select(this)>C. washing</li>
+    <li class = "n" onclick=select(this)>D. offering</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of quagmire?<ul>
+    <li class = "n" onclick=select(this)>A. ice</li>
+    <li class = "r" onclick=select(this)>B. swamp</li>
+    <li class = "n" onclick=select(this)>C. puddle</li>
+    <li class = "n" onclick=select(this)>D. desert</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of ostentatious?<ul>
+    <li class = "n" onclick=select(this)>A. conservative</li>
+    <li class = "n" onclick=select(this)>B. appropriate</li>
+    <li class = "n" onclick=select(this)>C. special</li>
+    <li class = "r" onclick=select(this)>D. showy</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of sentient?<ul>
+    <li class = "n" onclick=select(this)>A. capable</li>
+    <li class = "n" onclick=select(this)>B. decisive</li>
+    <li class = "r" onclick=select(this)>C. aware</li>
+    <li class = "n" onclick=select(this)>D. sweet</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of adhere?<ul>
+    <li class = "n" onclick=select(this)>A. lose</li>
+    <li class = "n" onclick=select(this)>B. fill</li>
+    <li class = "r" onclick=select(this)>C. stick</li>
+    <li class = "n" onclick=select(this)>D. wait</li>
+    </ul></li>
+    <li class = "o">Which is a synonym of adversity?<ul>
+    <li class = "n" onclick=select(this)>A. emergency</li>
+    <li class = "n" onclick=select(this)>B. windfall</li>
+    <li class = "n" onclick=select(this)>C. answer</li>
+    <li class = "r" onclick=select(this)>D. misfortune</li>
+    </ul></li>
+</ol>
+
+<button onclick="result()" style="zoom:150%;">Click here to show the quiz score</button>
+
+</div>
+
+<div id="div4" class="col-3 col-s-12">
+  <div id="div5" class="aside">
+    <p>Take our 10 questions quiz</p>
+  </div>
+  <img src="https://www.dictionary.com/e/wp-content/uploads/2018/02/wotd_quiz-800x800-380x380.jpg" alt="quiz1" style="float:left;"/>
+  <img src="https://www.merriam-webster.com/assets/mw/images/quiz/quiz-games-landing-featured-lg/vocabulary-logo-2761-8ee5431b3c1fbed34b4e752914f2f89c@1x.jpg" alt="quiz2" style="float:left;"/>
+</div>
+</div>
+
+<script>
+var p = document.createElement("p");
+var node = document.createTextNode("and maybe learn some new words along the way.");
+p.appendChild(node);
+var element = document.getElementById("div5");
+element.appendChild(p);
+</script>
+
+
+<p style="color:black;font-size:15px;">The current time is:
+<script type="text/javascript">
+         print_todays_date();
+</script></p>
+
+<div id="div6" class="footer">
+  <p>Copyright by Guojing Zhang</p>
+</div>
+</div>
+</body>
+</html>
